@@ -38,7 +38,24 @@ public class HomePage extends AppCompatActivity {
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.navigation_saved:
+
+                                break;
+                            case R.id.navigation_search:
+
+                                break;
+                            case R.id.navigation_settings:
+
+                                break;
+                        }
+                        return false;
+                    }
+                });
     }
 
 }
