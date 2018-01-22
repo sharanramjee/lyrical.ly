@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-public class HomePage extends AppCompatActivity {
+import java.util.Set;
+
+public class SettingsPage extends AppCompatActivity {
 
     private TextView mTextMessage;
 
@@ -18,11 +20,11 @@ public class HomePage extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_search:
-                    return true;
                 case R.id.navigation_settings:
                     return true;
                 case R.id.navigation_saved:
+                    return true;
+                case R.id.navigation_search:
                     return true;
             }
             return false;
@@ -32,7 +34,7 @@ public class HomePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.activity_settings_page);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -41,17 +43,17 @@ public class HomePage extends AppCompatActivity {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                         switch (item.getItemId()) {
-                            case R.id.navigation_search:
-
-                                break;
                             case R.id.navigation_settings:
-
-                                Intent settings_intent = new Intent(HomePage.this, SettingsPage.class);
-                                startActivity(settings_intent);
-                                finish();
 
                                 break;
                             case R.id.navigation_saved:
+
+                                break;
+                            case R.id.navigation_search:
+
+                                Intent settings_intent = new Intent(SettingsPage.this, HomePage.class);
+                                startActivity(settings_intent);
+                                finish();
 
                                 break;
                         }
